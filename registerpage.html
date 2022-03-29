@@ -28,29 +28,15 @@
     
     <!-- Custom Style -->
     <link rel="stylesheet" href="./assets/css/styles.css">
-    
-    <!-- <style type="text/css">
-        *{
-            box-sizing: border-box;
-        }
-
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #FFFFFF;
-        }
-
-        .container {
-            max-width: 950px;
-            width: 100%;
+    <style>
+        .card-register {
             background: #F5F5F5;
             padding: 10px 40px 10px 40px;
             border-radius: 30px;
             box-shadow: 0 5px 10px rgba(0,0,0,0.15);
         }
 
-        .container .title {
+        .card-register .title {
             font-size: 28px;
             color: #3A3A3C;
             position:  relative;
@@ -59,7 +45,7 @@
             margin-top: 20px;
         }
 
-        .container .subtitle {
+        .card-register .subtitle {
             font-size: 14px;
             color: #8F90A6;
             position: relative;
@@ -67,14 +53,14 @@
             text-align: center;
         }
 
-        .container form .userInput {
+        .card-register form .userInput {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             margin-bottom: 15px;
         }
 
-        form .userInput .inputBox {
+        .card-register form .userInput .inputBox {
             margin-bottom: 25px;
             width: calc(100% /2 - 20px);
         }
@@ -86,7 +72,7 @@
             color: #3A3A3C;
         }
 
-        .userInput .inputBox input {
+        .card-register .userInput .inputBox input {
             height: 55px;
             width: 100%;
             border-radius: 6px;
@@ -96,7 +82,7 @@
             color: #3A3A3C;
         }
 
-        form .genderUser .genderTitle {
+        .card-register form .genderUser .genderTitle {
             font-size: 16px;
             color: #3A3A3C;
         }
@@ -159,48 +145,48 @@
         .linkToLogin .login {
             margin-left: 5px;
         }
-    </style> -->
+    </style>
 </head>
 <body>
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg px-lg-5 px-2 py-4 py-lg-5 navbar-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/">
-            <h3>
-                Fund Me
-            </h3>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link mx-lg-4 active" aria-current="page" href="#">
-                        Home
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link mx-lg-4" href="#">
-                        Discover Project
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link mx-lg-4" href="#">
-                        About Us
-                    </a>
-                </li>
-                <li class="nav-item mt-2 mt-lg-0 ms-lg-3">
-                    <a class="btn button-primary w-100 btn-lg fs-6">
-                        Login
-                    </a>
-                </li>
-            </ul>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg px-lg-5 px-2 py-4 py-lg-5 navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <h3>
+                    Fund Me
+                </h3>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link mx-lg-4 active" aria-current="page" href="#">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-lg-4" href="#">
+                            Discover Project
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-lg-4" href="#">
+                            About Us
+                        </a>
+                    </li>
+                    <li class="nav-item mt-2 mt-lg-0 ms-lg-3">
+                        <a class="btn button-primary w-100 btn-lg fs-6">
+                            Login
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
-    <div class="container">
+    <div class="container card-register my-5">
         <div class="title"><b>Register</b></div>
         <div class="subtitle">Fill the blank input below here to sign up</div>
         <form action="#">
@@ -262,7 +248,7 @@
     </div>
 
     <!-- Footer -->
-    <footer class="footer py-5 px-3">
+    <footer class="footer py-5 px-3 mt-5">
         <div class="container-fluid px-2 px-lg-5">
             <div class="row">
                 <div class="col-md-7">
