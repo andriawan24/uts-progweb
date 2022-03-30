@@ -110,4 +110,28 @@ $(document).ready(function(){
             $('#goals-text').removeClass('detail-choose')
         }
     })
+
+   $('#list-business').click((e) => {
+        var doc = new jsPDF()
+
+        doc.text($('#title').text(), 50, 10)
+        doc.text($('#short-description').text(), -30, 30)
+        doc.text("Description", 14, 70)
+        doc.text($('#long-description').text(), -30, 80)
+        doc.save('a4.pdf')
+   })
+
+   $('#login-button').click((e) => {
+        if (!$('#email').val()) {
+            $('#error-email').text("Email cannot empty")
+        }
+
+        if (!$('#password').val()) {
+            $('#error-password').text("Password cannot empty")
+        }
+
+        if ($('#email').val() && $('#password').val()) {
+            window.location.href = "./index.html"
+        }
+   })
 });
