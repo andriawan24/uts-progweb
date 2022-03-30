@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Fund Me</title>
+    <title>Detail - Fund Me</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -106,27 +106,51 @@
                         </p>
 
                         <div class="d-flex bd-highlight mt-4">
-                            <div class="bd-highlight">
-                                <p class="fs-5 fw-bold pb-3" style="color: #112D4E; border-bottom: 2px solid #112D4E">
-                                    Business Proposal
-                                </p>
+                            <div class="bd-highlight me-5">
+                                <a href="javascript:void(0)" id="business-proposal" style="text-decoration: none;">
+                                    <p class="fs-5 pb-3 fw-bold detail-choose" id="business-text" style="color: #3F72AF;">
+                                        Business Proposal
+                                    </p>
+                                </a>
                             </div>
-                            <div class="flex-grow-1 pb-3 bd-highlight text-center">
-                                <p class="fs-5 fw-bold" style="color: #3F72AF;">
-                                    Goals
-                                </p>
+                            <div class="ms-5 bd-highlight text-center" id="goals">
+                                <a href="javascript:void(0)" style="text-decoration: none;">
+                                    <p class="fs-5 pb-3 fw-bold" id="goals-text" style="color: #3F72AF;">
+                                        Goals
+                                    </p>
+                                </a>
                             </div>
                         </div>
-                        <div class="d-flex mt-3">
-                            <i class="fa fa-file" style="font-size: 30pt"></i>
-                            <div class="ms-4">
-                                <p style="margin: 0; color: #6B7588;">
-                                    businessproposal.pdf
-                                </p>
-                                <p style="margin: 0; color: #C7C9D9">
-                                    1.24 MB
-                                </p>
+
+                        <a href="http://pii.or.id/uploads/dummies.pdf" id="list-business" class="d-block" target="_blank" style="text-decoration: none;">
+                            <div class="d-flex mt-3">
+                                <i class="fa fa-file" style="font-size: 30pt; color: #6B7588"></i>
+                                <div class="ms-4">
+                                    <p style="margin: 0; color: #6B7588;">
+                                        businessproposal.pdf
+                                    </p>
+                                    <p style="margin: 0; color: #C7C9D9">
+                                        1.24 MB
+                                    </p>
+                                </div>
                             </div>
+                        </a>
+
+                        <div class="list-goals d-none w-100 mt-2" id="list-goals">
+                            <ul>
+                                <li class="mb-4">
+                                    First Goals
+                                </li>
+                                <li class="mb-4">
+                                    Second Goals
+                                </li>
+                                <li class="mb-4">
+                                    Third Goals
+                                </li>
+                                <li class="mb-4">
+                                    Fourth Goals
+                                </li>
+                            </ul>
                         </div>
                     </div>
                     <div class="col-md-1"></div>
@@ -170,7 +194,7 @@
 
                             <input type="number" id="amount-input" placeholder="enter amount..." class="form-control form-amount">
 
-                            <a href="#explore" class="btn button-primary w-100 btn-lg fs-6 mt-5 py-2">
+                            <a href="/success.html" class="btn button-primary w-100 btn-lg fs-6 mt-5 py-2">
                                 Proceed
                             </a>
                         </div>

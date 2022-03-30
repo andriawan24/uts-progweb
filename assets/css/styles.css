@@ -102,3 +102,8 @@ body {
     height: 61px;
     border-radius: 6px;
 }
+
+.detail-choose {
+    color: #112D4E !important;
+    border-bottom: 2px solid #112D4E;
+}
