@@ -118,7 +118,7 @@ $(document).ready(function(){
         doc.text($('#short-description').text(), -30, 30)
         doc.text("Description", 14, 70)
         doc.text($('#long-description').text(), -30, 80)
-        doc.save('a4.pdf')
+        doc.save(`business-proposal_${$('#title').text()}.pdf`)
    })
 
    $('#login-button').click((e) => {

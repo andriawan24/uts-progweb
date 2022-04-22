@@ -1,4 +1,4 @@
-/* body {
+body {
     font-family: 'Spectral', serif;;
 }
 
@@ -106,9 +106,9 @@
 .detail-choose {
     color: #112D4E !important;
     border-bottom: 2px solid #112D4E;
-} */
+}
 
-body {
+/* body {
     font-family: 'Spectral', serif;;
 }
 
@@ -216,4 +216,4 @@ body {
 .detail-choose {
     color: #112D4E !important;
     border-bottom: 2px solid #112D4E;
-}
+} */
