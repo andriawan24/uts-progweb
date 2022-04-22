@@ -1,3 +1,24 @@
+<?php 
+  session_start();
+  if (isset($_SESSION['user'])) {
+    header('Location: index.php');
+  }
+
+  if (isset($_POST['email']) && isset($_POST['password'])) {
+    // Dummy user
+    $email = "knockout@gmail.com";
+    $password = "knockout123";
+
+    if ($_POST['email'] == $email && $_POST['password'] == $password) {
+      $_SESSION['user'] = "Knockout";
+      header('Location: index.php');
+    } else {
+      setcookie('error', 'Username atau password salah', time() + 1);
+      header('Location: login.php');
+    }
+  }
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -38,6 +59,15 @@
     </style>
   </head>
 <body>
+  <?php
+  if (isset($_COOKIE['error'])) {
+  ?>
+    <script>
+      alert("<?= $_COOKIE['error'] ?>")
+    </script>
+  <?php
+    }
+  ?>
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg px-lg-5 px-2 py-4 py-lg-5 navbar-light">
     <div class="container-fluid">
@@ -82,7 +112,6 @@
         <img src="./assets/images/img_login.png" alt="" class="d-none d-lg-block" style="margin-left: -10px;">
       </div>
       <div class="col-lg-7 px-5 pt-5">
-        <form>
           <div class="form-row">
             <div class="col-lg-12">
               <h3 style="text-align: center;">Welcome</h3>
@@ -91,35 +120,35 @@
               </p>
             </div>
           </div>
-          <div class="form-row">
-            <div class="col-lg-12">
-              <input type="email" id="email" placeholder="Email Address" class="form-control my-3 px-4 py-3">
-              <p id="error-email" class="text-danger"></p>
+          <form action="./login.php" method="POST" id="login-form">
+            <div class="form-row">
+              <div class="col-lg-12">
+                <input type="email" name="email" id="email" placeholder="Email Address" class="form-control my-3 px-4 py-3">
+                <p id="error-email" class="text-danger"></p>
+              </div>
             </div>
-          </div>
-          <div class="form-row">
-            <div class="col-lg-12">
-              <input type="password" id="password" placeholder="Password" class="form-control my-3 px-4 py-3">
-              <p id="error-password" class="text-danger"></p>
+            <div class="form-row">
+              <div class="col-lg-12">
+                <input type="password" name="password" id="password" placeholder="Password" class="form-control my-3 px-4 py-3">
+                <p id="error-password" class="text-danger"></p>
+              </div>
+                <p class="text-end">
+                <a href="./forgot-password.html">
+                    Forgot Password
+                  </a>
+              </p>
             </div>
-              <p class="text-end">
-               <a href="./forgot-password.html">
-                  Forgot Password
-                </a>
-            </p>
-          </div>
-          <div class="form-row">
-            <div class="col-lg-12">
-              <!-- <a class="btn btn-lg button-primary w-100 fs-6 mt-3 mb-5" id="login-button">Login</a> -->
-              <button type="button" class="btn btn-lg button-primary w-100 fs-6 mt-3 mb-5" id="login-button">
-                Login
-              </button>
+            <div class="form-row">
+              <div class="col-lg-12">
+                <button type="button" class="btn btn-lg button-primary w-100 fs-6 mt-3 mb-5" id="login-button">
+                  Login
+                </button>
+              </div>
             </div>
-          </div>
+          </form>
           <p class="text-center">
             Don't have an account? Please <a href="./register.html">Register</a>
           </p>
-        </form>
       </div>
     </div>
   </section>

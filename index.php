@@ -58,11 +58,26 @@
                             About Us
                         </a>
                     </li>
-                    <li class="nav-item mt-2 mt-lg-0 ms-lg-3">
-                        <a class="btn button-primary w-100 btn-lg fs-6" href="./login.html">
-                            Login
-                        </a>
-                    </li>
+                    <?php
+                    session_start();
+                        if (isset($_SESSION['user'])) {
+                    ?>
+                        <li class="nav-item mt-2 mt-lg-0 ms-lg-3">
+                            <a class="btn button-primary w-100 btn-lg fs-6" href="./logout.php">
+                                Login As : <?= $_SESSION['user'] ?>
+                            </a>
+                        </li>
+                    <?php
+                        } else {
+                    ?>
+                        <li class="nav-item mt-2 mt-lg-0 ms-lg-3">
+                            <a class="btn button-primary w-100 btn-lg fs-6" href="./login.php">
+                                Login
+                            </a>
+                        </li>
+                    <?php 
+                        }
+                    ?>
                 </ul>
             </div>
         </div>

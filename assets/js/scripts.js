@@ -131,7 +131,7 @@ $(document).ready(function(){
         }
 
         if ($('#email').val() && $('#password').val()) {
-            window.location.href = "./index-logged.html"
+            $('form#login-form').submit();
         }
    })
 });
