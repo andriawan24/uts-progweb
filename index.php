@@ -78,7 +78,7 @@
                         } else {
                     ?>
                         <li class="nav-item mt-2 mt-lg-0 ms-lg-3">
-                            <a class="btn button-primary w-100 btn-lg fs-6" href="./login.php">
+                            <a class="btn button-primary w-100 btn-lg fs-6" href="./login/index.php">
                                 Login
                             </a>
                         </li>

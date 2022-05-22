@@ -14,7 +14,7 @@
       header('Location: index.php');
     } else {
       setcookie('error', 'Username atau password salah', time() + 1);
-      header('Location: login.php');
+      header('Location: index.php');
     }
   }
 ?>
@@ -41,14 +41,14 @@
         crossorigin="anonymous" />
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="./assets/css/font-awesome/css/all.min.css">    
+    <link rel="stylesheet" href="../assets/css/font-awesome/css/all.min.css">    
 
     <!-- Owl Carousel -->
-    <link rel="stylesheet" href="./assets/js/owl-carousel/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="./assets/js/owl-carousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../assets/js/owl-carousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="../assets/js/owl-carousel/assets/owl.theme.default.min.css">
 
     <!-- Custom Style -->
-    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
 
     <style>
       .card-login {
@@ -82,7 +82,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link mx-lg-4" aria-current="page" href="./index.html">
+                    <a class="nav-link mx-lg-4" aria-current="page" href="../index.html">
                         Home
                     </a>
                 </li>
@@ -109,7 +109,7 @@
   <section class="card-login container my-5">
     <div class="row no-gutters">
       <div class="col-lg-5">
-        <img src="./assets/images/img_login.png" alt="" class="d-none d-lg-block" style="margin-left: -10px;">
+        <img src="../assets/images/img_login.png" alt="" class="d-none d-lg-block" style="margin-left: -10px;">
       </div>
       <div class="col-lg-7 px-5 pt-5">
           <div class="form-row">
@@ -120,7 +120,7 @@
               </p>
             </div>
           </div>
-          <form action="./login.php" method="POST" id="login-form">
+          <form action="../index.php" method="POST" id="login-form">
             <div class="form-row">
               <div class="col-lg-12">
                 <input type="email" name="email" id="email" placeholder="Email Address" class="form-control my-3 px-4 py-3">
@@ -133,7 +133,7 @@
                 <p id="error-password" class="text-danger"></p>
               </div>
                 <p class="text-end">
-                <a href="./forgot-password.html">
+                <a href="../forgot-password/forgot-password.html">
                     Forgot Password
                   </a>
               </p>
@@ -147,7 +147,7 @@
             </div>
           </form>
           <p class="text-center">
-            Don't have an account? Please <a href="./register.html">Register</a>
+            Don't have an account? Please <a href="../register.html">Register</a>
           </p>
       </div>
     </div>
@@ -188,7 +188,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-  <script src="./assets/js/owl-carousel/owl.carousel.min.js"></script>
-  <script src="./assets/js/scripts.js"></script>
+  <script src="../assets/js/owl-carousel/owl.carousel.min.js"></script>
+  <script src="../assets/js/scripts.js"></script>
 </body>
 </html>

@@ -181,7 +181,7 @@
                         </a>
                     </li>
                     <li class="nav-item mt-2 mt-lg-0 ms-lg-3">
-                        <a class="btn button-primary w-100 btn-lg fs-6" href="./login.php">
+                        <a class="btn button-primary w-100 btn-lg fs-6" href="../login/index.php/">
                             Login
                         </a>
                     </li>
@@ -240,12 +240,12 @@
             </div>
 
             <div class="button">
-                <a class="btn btn-lg button-primary w-100 fs-6 mt-3 mb-5" href="./login.php">Register</a>
+                <a class="btn btn-lg button-primary w-100 fs-6 mt-3 mb-5" href="/login/index.php">Register</a>
             </div>
 
             <div class="linkToLogin">
                 <span class="text">Already have an account? Please </span>
-                <span class="login"> <a style="text-decoration: none;" href="login.html"> Sign In </a> </span>
+                <span class="login"> <a style="text-decoration: none;" href="/login/index.php"> Sign In </a> </span>
             </div>
         </div>
         </form>
