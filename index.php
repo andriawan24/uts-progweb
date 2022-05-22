@@ -1,5 +1,13 @@
+<?php
+    include_once('settings/session.php');
+    include_once('settings/utils.php');
+    include_once('projects/index.php');
+
+    $projects = getProjects($mysqli);
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -59,8 +67,7 @@
                         </a>
                     </li>
                     <?php
-                    session_start();
-                        if (isset($_SESSION['user'])) {
+                        if ($is_logged_in) {
                     ?>
                         <li class="nav-item mt-2 mt-lg-0 ms-lg-3">
                             <a class="btn button-primary w-100 btn-lg fs-6" href="./logout.php">
@@ -131,7 +138,56 @@
                     <div class="row mt-lg-4">
                         <div class="col-md-12">
                             <div class="owl-carousel">
-                                <div class="card-promos" id="card-promos">
+                                <?php 
+                                    foreach ($projects as $index => $project) {
+                                ?>
+                                    <div class="card-promos" id="card-promos">
+                                        <img src="./assets/images/dummy_promos.png" style="border-top-left-radius: 10px; border-top-right-radius: 10px;" class="w-100" alt="Promo">
+                                        <div class="container px-4 pt-4 py-2">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <h3 class="fs-4 fw-bold">
+                                                        <?= $project['title'] ?>
+                                                    </h3>
+                                                    <p class="fw-light fs-5 mt-3" style="color: #6B7588;">
+                                                        <?= $project['short_description'] ?>
+                                                    </p>
+
+                                                    <div class="d-flex bd-highlight">
+                                                        <div class="flex-grow-1 bd-highlight">
+                                                            <p class="fs-6" style="color: #112D4E;">
+                                                                Goals
+                                                            </p>
+                                                        </div>
+                                                        <div class="flex-grow-1 bd-highlight text-end">
+                                                            <p class="fs-6" style="color: #112D4E;">
+                                                                <?= format_number_currency($project['goal_amount']) ?>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="progress">
+                                                        <div 
+                                                            class="progress-bar" 
+                                                            role="progressbar" 
+                                                            style="width: <?= calculate_percentage($project['current_amount'], $project['goal_amount']) ?>%; background-color: #3F72AF;border-radius:20px" 
+                                                            aria-valuenow="<?= calculate_percentage($project['current_amount'], $project['goal_amount']) ?>" 
+                                                            aria-valuemin="0" 
+                                                            aria-valuemax="100"> <?= calculate_percentage($project['current_amount'], $project['goal_amount']) . ' %' ?>
+                                                        </div>
+                                                    </div>
+
+                                                    <p class="mt-3 fw-light" style="color: #8F90A6;">
+                                                        <i class="fas fa-clock me-2"></i> <?= sub_date_to_day($project['deadline']) ?>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php 
+                                }
+                                ?>
+                                <!-- <div class="card-promos" id="card-promos">
                                     <img src="./assets/images/dummy_promos.png" style="border-top-left-radius: 10px; border-top-right-radius: 10px;" class="w-100" alt="Promo">
                                     <div class="container px-4 pt-4 py-2">
                                         <div class="row">
@@ -438,51 +494,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="card-promos" id="card-promos">
-                                    <img src="./assets/images/dummy_promos.png" style="border-top-left-radius: 10px; border-top-right-radius: 10px;" class="w-100" alt="Promo">
-                                    <div class="container px-4 pt-4 py-2">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <h3 class="fs-4 fw-bold">
-                                                    Trash In
-                                                </h3>
-                                                <p class="fw-light fs-5 mt-3" style="color: #6B7588;">
-                                                    We create platform that can make
-                                                    the trash can become an e-money.
-                                                </p>
-
-                                                <div class="d-flex bd-highlight">
-                                                    <div class="flex-grow-1 bd-highlight">
-                                                        <p class="fs-6" style="color: #112D4E;">
-                                                            Goals
-                                                        </p>
-                                                    </div>
-                                                    <div class="flex-grow-1 bd-highlight text-end">
-                                                        <p class="fs-6" style="color: #112D4E;">
-                                                            Rp5.600.000
-                                                        </p>
-                                                    </div>
-                                                </div>
-
-                                                <div class="progress">
-                                                    <div 
-                                                        class="progress-bar" 
-                                                        role="progressbar" 
-                                                        style="width: 50%; background-color: #3F72AF;border-radius:20px" 
-                                                        aria-valuenow="50" 
-                                                        aria-valuemin="0" 
-                                                        aria-valuemax="100"> 50% 
-                                                    </div>
-                                                </div>
-
-                                                <p class="mt-3 fw-light" style="color: #8F90A6;">
-                                                    <i class="fas fa-clock me-2"></i> 23 Hours Left
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
