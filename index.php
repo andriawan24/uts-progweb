@@ -1,7 +1,7 @@
 <?php
     include_once('settings/session.php');
     include_once('settings/utils.php');
-    include_once('projects/index.php');
+    include_once('projects/functions.php');
 
     $projects = getProjects($mysqli);
 ?>
@@ -71,7 +71,7 @@
                     ?>
                         <li class="nav-item mt-2 mt-lg-0 ms-lg-3">
                             <a class="btn button-primary w-100 btn-lg fs-6" href="./logout.php">
-                                Login As : <?= $_SESSION['user'] ?>
+                                Login As : <?= $user['first_name'] ?>
                             </a>
                         </li>
                     <?php

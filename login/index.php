@@ -1,22 +1,5 @@
-<?php 
-  session_start();
-  if (isset($_SESSION['user'])) {
-    header('Location: index.php');
-  }
-
-  if (isset($_POST['email']) && isset($_POST['password'])) {
-    // Dummy user
-    $email = "knockout@gmail.com";
-    $password = "knockout123";
-
-    if ($_POST['email'] == $email && $_POST['password'] == $password) {
-      $_SESSION['user'] = "Knockout";
-      header('Location: index.php');
-    } else {
-      setcookie('error', 'Username atau password salah', time() + 1);
-      header('Location: index.php');
-    }
-  }
+<?php
+  include_once('functions.php');
 ?>
 
 <!doctype html>
@@ -120,7 +103,7 @@
               </p>
             </div>
           </div>
-          <form action="../index.php" method="POST" id="login-form">
+          <form action="index.php" method="POST" id="login-form">
             <div class="form-row">
               <div class="col-lg-12">
                 <input type="email" name="email" id="email" placeholder="Email Address" class="form-control my-3 px-4 py-3">
