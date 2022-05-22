@@ -1,5 +1,6 @@
 <?php
-    include_once('settings/session.php');
+    // include_once('settings/session.php');
+    require 'vendor/autoload.php';
     include_once('settings/utils.php');
     include_once('projects/index.php');
 
