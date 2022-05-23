@@ -19,8 +19,10 @@ $(document).ready(function(){
         }
     });
 
-    $('#card-promos').click(() => {
-        window.location.href = "/detail.html"
+    $('div[id^="card-promos"]').click((e) => {
+        const id = e.currentTarget.attributes['data-id-project'].value;
+        // const id = $('div#card-promos').attr('data-id-project');
+        window.location.href = `/detail.html?id_project=${id}`;
     })
 
     let input = $('#amount-input')

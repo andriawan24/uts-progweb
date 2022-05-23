@@ -141,7 +141,7 @@
                                 <?php 
                                     foreach ($projects as $index => $project) {
                                 ?>
-                                    <div class="card-promos" id="card-promos">
+                                    <div class="card-promos" id="card-promos-<?= $project['id'] ?>", data-id-project="<?= $project['id'] ?>">
                                         <img src="./assets/images/dummy_promos.png" style="border-top-left-radius: 10px; border-top-right-radius: 10px;" class="w-100" alt="Promo">
                                         <div class="container px-4 pt-4 py-2">
                                             <div class="row">
