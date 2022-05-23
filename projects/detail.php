@@ -20,14 +20,14 @@
         crossorigin="anonymous" />
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="./assets/css/font-awesome/css/all.min.css">    
+    <link rel="stylesheet" href="../assets/css/font-awesome/css/all.min.css">    
 
     <!-- Owl Carousel -->
-    <link rel="stylesheet" href="./assets/js/owl-carousel/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="./assets/js/owl-carousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../assets/js/owl-carousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="../assets/js/owl-carousel/assets/owl.theme.default.min.css">
 
     <!-- Custom Style -->
-    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
 <body>
     <!-- Navbar -->
@@ -59,7 +59,7 @@
                         </a>
                     </li>
                     <li class="nav-item mt-2 mt-lg-0 ms-lg-3">
-                        <a class="btn button-primary w-100 btn-lg fs-6" href="./login.php">
+                        <a class="btn button-primary w-100 btn-lg fs-6" href="../login.php">
                             Login
                         </a>
                     </li>
@@ -72,7 +72,7 @@
     <main>
         <!-- Heading -->
         <div class="pb-5">
-            <img src="./assets/images/dummy_detail.png" alt="Detail Project" class="w-100" height="350px">
+            <img src="../assets/images/dummy_detail.png" alt="Detail Project" class="w-100" height="350px">
 
             <div class="container py-5">
                 <div class="row">
@@ -239,8 +239,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    <script src="./assets/js/owl-carousel/owl.carousel.min.js"></script>
+    <script src="../assets/js/owl-carousel/owl.carousel.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
-    <script src="./assets/js/scripts.js"></script>
+    <script src="../assets/js/scripts.js"></script>
 </body>
 </html>
