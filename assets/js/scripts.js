@@ -29,50 +29,50 @@ $(document).ready(function(){
     console.log(input)
 
     $('#select-amount-1').click(() => {
-        input.val('')
+        input.val('100000')
         let pTag = $("#select-amount-1 p:first")
         let p2Tag = $("#select-amount-2 p:first")
         let p3Tag = $("#select-amount-3 p:first")
         if (pTag.hasClass('selected')) {
             pTag.removeClass('selected')
-            input.prop('disabled', false)
+            input.prop('readonly', false)
         } else {
             pTag.addClass('selected')
             p2Tag.removeClass('selected')
             p3Tag.removeClass('selected')
-            input.prop('disabled', true)
+            input.prop('readonly', true)
         }
     })
 
     $('#select-amount-2').click(() => {
-        input.val('')
+        input.val('200000')
         let pTag = $("#select-amount-2 p:first")
         let p2Tag = $("#select-amount-1 p:first")
         let p3Tag = $("#select-amount-3 p:first")
         if (pTag.hasClass('selected')) {
             pTag.removeClass('selected')
-            input.prop('disabled', false)
+            input.prop('readonly', false)
         } else {
             pTag.addClass('selected')
             p2Tag.removeClass('selected')
             p3Tag.removeClass('selected')
-            input.prop('disabled', true)
+            input.prop('readonly', true)
         }
     })
 
     $('#select-amount-3').click(() => {
-        input.val('')
+        input.val('500000')
         let pTag = $("#select-amount-3 p:first")
         let p2Tag = $("#select-amount-2 p:first")
         let p3Tag = $("#select-amount-1 p:first")
         if (pTag.hasClass('selected')) {
             pTag.removeClass('selected')
-            input.prop('disabled', false)
+            input.prop('readonly', false)
         } else {
             pTag.addClass('selected')
             p2Tag.removeClass('selected')
             p3Tag.removeClass('selected')
-            input.prop('disabled', true)
+            input.prop('readonly', true)
         }
     })
 

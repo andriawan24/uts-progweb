@@ -1,5 +1,9 @@
 <?php
   include_once('functions.php');
+
+  if (isset($_POST['email']) && isset($_POST['password'])) {
+    attemptLogin($mysqli, $_POST['email'], $_POST['password']);    
+  }
 ?>
 
 <!doctype html>

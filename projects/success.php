@@ -20,14 +20,14 @@
         crossorigin="anonymous" />
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="./assets/css/font-awesome/css/all.min.css">    
+    <link rel="stylesheet" href="../assets/css/font-awesome/css/all.min.css">    
 
     <!-- Owl Carousel -->
-    <link rel="stylesheet" href="./assets/js/owl-carousel/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="./assets/js/owl-carousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../assets/js/owl-carousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="../assets/js/owl-carousel/assets/owl.theme.default.min.css">
     
     <!-- Custom Style -->
-    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
     <style type="text/css">
         .btn {
             height: 100%;
@@ -74,7 +74,7 @@
                         </a>
                     </li>
                     <li class="nav-item mt-2 mt-lg-0 ms-lg-3">
-                        <a class="btn button-primary w-100 btn-lg fs-6" href="./login/index.php">
+                        <a class="btn button-primary w-100 btn-lg fs-6" href="../login/index.php">
                             Login
                         </a>
                     </li>
@@ -88,9 +88,9 @@
             <div class="col-md-6 mx-auto">
                 <div class="card shadow border px-5 py-5" style="border-radius: 20px;">
                     <div class="card-body d-flex flex-column align-items-center">
-                        <img class="card-img-top" src="./assets/images/success.png" alt="Card image">
+                        <img class="card-img-top" src="../assets/images/success.png" alt="Card image">
                         <p class="card-text mt-4" style="text-align: center;">Your investment is successfull, the organization of project will contact you.</p>
-                        <a href="index.html" class="btn btn-primary btn-lg mt-4">Back to Home</a>
+                        <a href="../index.php" class="btn btn-primary btn-lg mt-4">Back to Home</a>
                     </div>
                 </div>
             </div>
@@ -131,7 +131,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    <script src="./assets/js/owl-carousel/owl.carousel.min.js"></script>
-    <script src="./assets/js/scripts.js"></script>
+    <script src="../assets/js/owl-carousel/owl.carousel.min.js"></script>
+    <script src="../assets/js/scripts.js"></script>
 </body>
 </html>

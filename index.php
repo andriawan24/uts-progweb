@@ -70,7 +70,7 @@
                         if ($is_logged_in) {
                     ?>
                         <li class="nav-item mt-2 mt-lg-0 ms-lg-3">
-                            <a class="btn button-primary w-100 btn-lg fs-6" href="./logout.php">
+                            <a class="btn button-primary w-100 btn-lg fs-6" href="./logout/index.php">
                                 Login As : <?= $user['first_name'] ?>
                             </a>
                         </li>

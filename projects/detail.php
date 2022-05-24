@@ -1,3 +1,19 @@
+<?php
+    include_once('../settings/session.php');
+    include_once('../settings/utils.php');
+    include_once('./functions.php');
+
+    $id = 0;
+    if (isset($_GET['id_project'])) {
+        $id = $_GET['id_project'];
+        $project = getProject($mysqli, $id);
+    }
+
+    if (isset($_POST['amount'])) {
+        addTransaction($mysqli, $id, $user['id'], $_POST['amount']);
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,6 +46,15 @@
     <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
 <body>
+    <?php
+        if (isset($_COOKIE['error'])) {
+    ?>
+        <script>
+        alert("<?= $_COOKIE['error'] ?>")
+        </script>
+    <?php
+        }
+    ?>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg px-lg-5 px-2 py-4 py-lg-5 navbar-light">
         <div class="container-fluid">
@@ -58,11 +83,25 @@
                             About Us
                         </a>
                     </li>
-                    <li class="nav-item mt-2 mt-lg-0 ms-lg-3">
-                        <a class="btn button-primary w-100 btn-lg fs-6" href="../login.php">
-                            Login
-                        </a>
-                    </li>
+                    <?php
+                        if ($is_logged_in) {
+                    ?>
+                        <li class="nav-item mt-2 mt-lg-0 ms-lg-3">
+                            <a class="btn button-primary w-100 btn-lg fs-6" href="../logout/index.php">
+                                Login As : <?= $user['first_name'] ?>
+                            </a>
+                        </li>
+                    <?php
+                        } else {
+                    ?>
+                        <li class="nav-item mt-2 mt-lg-0 ms-lg-3">
+                            <a class="btn button-primary w-100 btn-lg fs-6" href="../login/index.php">
+                                Login
+                            </a>
+                        </li>
+                    <?php 
+                        }
+                    ?>
                 </ul>
             </div>
         </div>
@@ -78,14 +117,11 @@
                 <div class="row">
                     <div class="col-md-7">
                         <p id="title" class="fs-3">
-                            Trash in
+                            <?= $project['title'] ?>
                         </p>
 
                         <p id="short-description" class="fw-light fs-6 mt-3" style="color: #6B7588;">
-                            Put in reusable trash into vending machine and you can
-                            get an e-money balance on your TrashIn mobile app.
-                            You can use that e-money and transfer to your bank 
-                            account.
+                            <?= $project['short_description'] ?>
                         </p>
 
                         <p class="mt-5 fs-3">
@@ -93,16 +129,7 @@
                         </p>
 
                         <p id="long-description" class="fw-light fs-6 mt-3" style="color: #6B7588;">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                            Nullam molestie eleifend consequat. Sed eget turpis est.  
-                            Lorem ipsum  dolor sit amet, consectetur adipiscing elit. 
-                            Nullam molestie eleifend consequat. Sed eget turpis est. 
-                            <br /><br />
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam 
-                            molestie eleifend consequat. Sed eget turpis est. Lorem ipsum dolor 
-                            sit amet, consectetur adipiscing elit. Nullam molestie eleifend 
-                            consequat. Sed eget turpis est.  Lorem ipsum dolor sit amet, 
-                            consectetur adipiscing elit. Nullam molestie eleifend consequat. 
+                            <?= $project['description'] ?> 
                         </p>
 
                         <div class="d-flex bd-highlight mt-4">
@@ -127,7 +154,7 @@
                                 <i class="fa fa-file" style="font-size: 30pt; color: #6B7588"></i>
                                 <div class="ms-4">
                                     <p style="margin: 0; color: #6B7588;">
-                                        businessproposal.pdf
+                                        <?= $project['business_proposal_url'] ?>
                                     </p>
                                     <p style="margin: 0; color: #C7C9D9">
                                         1.24 MB
@@ -164,39 +191,47 @@
                                 Choose amount
                             </p>
 
-                            <div id="amount-selection" class="d-flex flex-wrap gap-3 amount-selection">
-                                <div class="flex-grow-1">
-                                    <div class="select-amount" id="select-amount-1">
-                                        <p class="text-center w-100 py-3 fs-6 fw-bold" style="margin: 0;">
-                                            Rp100.000
-                                        </p> 
+                            <form action="" method="POST">
+                                <div id="amount-selection" class="d-flex flex-wrap gap-3 amount-selection">
+                                    <div class="flex-grow-1">
+                                        <div class="select-amount" id="select-amount-1">
+                                            <p class="text-center w-100 py-3 fs-6 fw-bold" style="margin: 0;">
+                                                Rp100.000
+                                            </p> 
+                                        </div>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <div class="select-amount" id="select-amount-2">
+                                            <p class="text-center w-100 py-3 fs-6 fw-bold" style="margin: 0;">
+                                                Rp200.000
+                                            </p> 
+                                        </div>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <div class="select-amount" id="select-amount-3">
+                                            <p class="text-center text-center w-100 py-3 fs-6 fw-bold" style="margin: 0;">
+                                                Rp500.000
+                                            </p> 
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="flex-grow-1">
-                                    <div class="select-amount" id="select-amount-2">
-                                        <p class="text-center w-100 py-3 fs-6 fw-bold" style="margin: 0;">
-                                            Rp200.000
-                                        </p> 
-                                    </div>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <div class="select-amount" id="select-amount-3">
-                                        <p class="text-center text-center w-100 py-3 fs-6 fw-bold" style="margin: 0;">
-                                            Rp500.000
-                                        </p> 
-                                    </div>
-                                </div>
-                            </div>
 
-                            <p class="fw-light fs-6 mt-4" style="color: #6B7588;">
-                                or enter amount
-                            </p>
+                                <p class="fw-light fs-6 mt-4" style="color: #6B7588;">
+                                    or enter amount
+                                </p>
 
-                            <input type="number" id="amount-input" placeholder="enter amount..." class="form-control form-amount">
+                                <input type="number" id="amount-input" name="amount" placeholder="enter amount..." class="form-control form-amount">
 
-                            <a href="/success.html" class="btn button-primary w-100 btn-lg fs-6 mt-5 py-2">
-                                Proceed
-                            </a>
+                                <?php if ($user) { ?>
+                                    <button type="submit" class="btn button-primary w-100 btn-lg fs-6 mt-5 py-2">
+                                        Proceed
+                                    </button>
+                                <?php } else { ?> 
+                                    <a class="btn button-primary w-100 btn-lg fs-6 mt-5 py-2 disabled" href="../login/index.php">
+                                        Login to continue
+                                    </a>
+                                <?php } ?>
+                            </form>
                         </div>
                     </div>
                 </div>
