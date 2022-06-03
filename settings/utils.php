@@ -11,12 +11,14 @@
         $seconds = $date_1 - $date_2;
         if ($seconds > 86400) {
             return round($seconds / 86400) . ' Days Left';
-        } else {
+        } else  if ($seconds > 0) {
             if ($seconds > 3600) {
                 return round($seconds / 60 / 60) . ' Hours Left';
             } else {
                 return round($seconds / 60) . ' Minutes Left';
             }
+        } else {
+            return "Sudah berakhir";
         }
     }
 

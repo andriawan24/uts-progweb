@@ -15,7 +15,7 @@
 
   function attemptLogin($mysqli, $username, $password) {
     $user = findUserByEmail($username, $mysqli);
-    if (!$user && $password != $user['password']) {
+    if (!$user || !password_verify($password, $user['password'])) {
       setcookie('error', 'Username atau password salah', time() + 1);
       header('Location: index.php');
     } else {

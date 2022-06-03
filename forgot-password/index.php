@@ -87,7 +87,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link mx-lg-4" aria-current="page" href="../index.html">
+                    <a class="nav-link mx-lg-4" aria-current="page" href="/">
                         Home
                     </a>
                 </li>
@@ -133,7 +133,7 @@
           </div>
           <div class="form-row">
             <div class="col-lg-7" style="margin-left: 130px;">
-              <a class="btn btn-lg button-primary w-100 fs-6 mt-3 mb-5" href=".../login/index.php">Reset Password</a>
+              <a class="btn btn-lg button-primary w-100 fs-6 mt-3 mb-5" href="../login/index.php">Reset Password</a>
             </div>
           </div>
         </form>

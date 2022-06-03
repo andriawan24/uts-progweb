@@ -57,7 +57,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-lg-4" href="#">
+                        <a class="nav-link mx-lg-4" href="/projects">
                             Discover Project
                         </a>
                     </li>

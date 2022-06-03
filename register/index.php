@@ -1,5 +1,62 @@
 <?php
     include('../settings/session.php');
+    include('functions.php');
+
+    $_ERROR = [];
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $is_valid = true;
+
+        if (!$_POST['first_name']) {
+            $_ERROR['first_name'] = "First name cannot empty";
+            $is_valid = false;
+        }
+
+        if (!$_POST['last_name']) {
+            $_ERROR['last_name'] = "Last name cannot empty";
+            $is_valid = false;
+        }
+
+        if (!$_POST['username']) {
+            $_ERROR['username'] = "Username cannot empty";
+            $is_valid = false;
+        }
+
+        if (!$_POST['email']) {
+            $_ERROR['email'] = "Email cannot empty";
+            $is_valid = false;
+        } else if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+            $_ERROR['email'] = "Email is not valid";
+            $is_valid = false;
+        }
+
+        if (!$_POST['password']) {
+            $_ERROR['password'] = "Password cannot empty";
+            $is_valid = false;
+        }
+
+        if (!$_POST['password_confirmation']) {
+            $_ERROR['password_confirmation'] = "Password confirmation cannot empty";
+            $is_valid = false;
+        }
+
+        if (!isset($_POST['gender']) || !$_POST['gender']) {
+            $_ERROR['gender'] = "Gender cannot empty";
+            $is_valid = false;
+        }
+
+        if ($is_valid) {
+            $user = [
+                'first_name' => $_POST['first_name'],
+                'last_name' => $_POST['last_name'],
+                'email' => $_POST['email'],
+                'password' => $_POST['password'],
+                'gender' => $_POST['gender'],
+            ];
+
+            register($user, $mysqli);
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -24,14 +81,14 @@
         crossorigin="anonymous" />
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="./assets/css/font-awesome/css/all.min.css">    
+    <link rel="stylesheet" href="../assets/css/font-awesome/css/all.min.css">    
 
     <!-- Owl Carousel -->
-    <link rel="stylesheet" href="./assets/js/owl-carousel/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="./assets/js/owl-carousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../assets/js/owl-carousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="../assets/js/owl-carousel/assets/owl.theme.default.min.css">
     
     <!-- Custom Style -->
-    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
     <style>
         .card-register {
             background: #F5F5F5;
@@ -152,6 +209,15 @@
     </style>
 </head>
 <body>
+    <?php
+        if (isset($_COOKIE['error'])) {
+    ?>
+        <script>
+            alert("<?= $_COOKIE['error'] ?>")
+        </script>
+    <?php
+        }
+    ?>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg px-lg-5 px-2 py-4 py-lg-5 navbar-light">
         <div class="container-fluid">
@@ -190,42 +256,84 @@
         </div>
     </nav>
 
-    <div class="container card-register my-5" style="padding-bottom: 200px;">
+    <div class="container card-register my-5 py-4">
         <div class="title"><b>Register</b></div>
         <div class="subtitle">Fill the blank input below here to sign up</div>
-        <form action="#">
+        <form action="" method="POST">
             <!-- Title and Input User --> 
             <div class="userInput">
                 <div class="inputBox">
                     <span class="details">First Name</span>
-                    <input type="text" placeholder="Enter your first name..." required>
+                    <input type="text" name="first_name" placeholder="Enter your first name...">
+                    <?php 
+                        if (isset($_ERROR['first_name'])) {
+                    ?>
+                        <p class="text-danger">
+                            <?= $_ERROR['first_name'] ?>
+                        </p>
+                    <?php } ?>
                 </div>
                 <div class="inputBox">
                     <span class="details">Last Name</span>
-                    <input type="text" placeholder="Enter your last name..." required>
+                    <input type="text" name="last_name" placeholder="Enter your last name...">
+                    <?php 
+                        if (isset($_ERROR['last_name'])) {
+                    ?>
+                        <p class="text-danger">
+                            <?= $_ERROR['last_name'] ?>
+                        </p>
+                    <?php } ?>
                 </div>
                 <div class="inputBox">
                     <span class="details">Username</span>
-                    <input type="text" placeholder="Enter your username..." required>
+                    <input type="text" name="username" placeholder="Enter your username...">
+                    <?php 
+                        if (isset($_ERROR['username'])) {
+                    ?>
+                        <p class="text-danger">
+                            <?= $_ERROR['username'] ?>
+                        </p>
+                    <?php } ?>
                 </div>
                 <div class="inputBox">
                     <span class="details">Email</span>
-                    <input type="email" placeholder="Enter your email..." required>
+                    <input type="email" name="email" placeholder="Enter your email...">
+                    <?php 
+                        if (isset($_ERROR['email'])) {
+                    ?>
+                        <p class="text-danger">
+                            <?= $_ERROR['email'] ?>
+                        </p>
+                    <?php } ?>
                 </div>
                 <div class="inputBox">
                     <span class="details">Password</span>
-                    <input type="password" placeholder="Enter your password..." required>
+                    <input type="password" name="password" placeholder="Enter your password...">
+                    <?php 
+                        if (isset($_ERROR['password'])) {
+                    ?>
+                        <p class="text-danger">
+                            <?= $_ERROR['password'] ?>
+                        </p>
+                    <?php } ?>
                 </div>
                 <div class="inputBox">
                     <span class="details">Confirm Password</span>
-                    <input type="password" placeholder="Confirm your password..." required>
+                    <input type="password" name="password_confirmation" placeholder="Confirm your password...">
+                    <?php 
+                        if (isset($_ERROR['password_confirmation'])) {
+                    ?>
+                        <p class="text-danger">
+                            <?= $_ERROR['password_confirmation'] ?>
+                        </p>
+                    <?php } ?>
                 </div>
             </div>
 
             <!--User Gender Radiobutton -->
             <div class="genderUser">
-                <input type="radio" name="gender" id="rb1">
-                <input type="radio" name="gender" id="rb2">
+                <input type="radio" name="gender" value="l" id="rb1">
+                <input type="radio" name="gender" id="rb2" value="p">
                 <span class="genderTitle">Gender</span>
                 <div class="category">
                     <label for="rb1">
@@ -237,10 +345,19 @@
                             <span class="gender">Female</span>
                     </label>
                 </div>
+                <?php 
+                    if (isset($_ERROR['gender'])) {
+                ?>
+                    <p class="text-danger">
+                        <?= $_ERROR['gender'] ?>
+                    </p>
+                <?php } ?>
             </div>
 
             <div class="button">
-                <a class="btn btn-lg button-primary w-100 fs-6 mt-3 mb-5" href="/login/index.php">Register</a>
+                <button type="submit" class="btn btn-lg button-primary w-100 fs-6 mt-3 mb-5">
+                    Register
+                </button>
             </div>
 
             <div class="linkToLogin">
@@ -285,7 +402,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    <script src="./assets/js/owl-carousel/owl.carousel.min.js"></script>
-    <script src="./assets/js/scripts.js"></script>
+    <script src="../assets/js/owl-carousel/owl.carousel.min.js"></script>
+    <script src="../assets/js/scripts.js"></script>
 </body>
 </html>

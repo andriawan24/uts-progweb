@@ -69,7 +69,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link mx-lg-4" aria-current="page" href="../index.html">
+                    <a class="nav-link mx-lg-4" aria-current="page" href="/">
                         Home
                     </a>
                 </li>
@@ -120,21 +120,21 @@
                 <p id="error-password" class="text-danger"></p>
               </div>
                 <p class="text-end">
-                <a href="../forgot-password/forgot-password.html">
+                <a href="../forgot-password/index.php">
                     Forgot Password
                   </a>
               </p>
             </div>
             <div class="form-row">
               <div class="col-lg-12">
-                <button type="button" class="btn btn-lg button-primary w-100 fs-6 mt-3 mb-5" id="login-button">
+                <button type="submit" class="btn btn-lg button-primary w-100 fs-6 mt-3 mb-5">
                   Login
                 </button>
               </div>
             </div>
           </form>
           <p class="text-center">
-            Don't have an account? Please <a href="../register.html">Register</a>
+            Don't have an account? Please <a href="../register/index.php">Register</a>
           </p>
       </div>
     </div>
